@@ -1,6 +1,7 @@
 package com.postobon.asignacion.cedis.infrastructure.rest.controller;
 
 import com.postobon.asignacion.cedis.application.IRolService;
+import com.postobon.asignacion.cedis.domain.dto.RolDTO;
 import com.postobon.asignacion.cedis.domain.entity.RolEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class RolController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<RolEntity>> findAll(){
+    public ResponseEntity<List<RolDTO>> findAll(){
         return new ResponseEntity<>(this.rolService.findAll(), HttpStatus.OK);
     }
 }
