@@ -19,7 +19,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UsuarioEntity>> findAll(){
+    public ResponseEntity<List<UserDTO>> findAll(){
         return new ResponseEntity<>(this.userService.findAll(), HttpStatus.OK);
     }
 

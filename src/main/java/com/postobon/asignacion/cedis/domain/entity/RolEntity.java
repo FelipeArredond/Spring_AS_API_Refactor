@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,8 +16,21 @@ public class RolEntity {
     @Column(name = "PK_Id")
     private Integer pkId;
     @Column(name = "S_Descripcion")
-    private String sDescripcion;
-    @OneToOne(mappedBy = "rol")
-    @JsonIgnore
-    private UsuarioEntity usuario;
+    private String sDesc;
+
+    public Integer getPkId() {
+        return pkId;
+    }
+
+    public void setPkId(Integer pkId) {
+        this.pkId = pkId;
+    }
+
+    public String getsDesc() {
+        return sDesc;
+    }
+
+    public void setsDesc(String sDesc) {
+        this.sDesc = sDesc;
+    }
 }

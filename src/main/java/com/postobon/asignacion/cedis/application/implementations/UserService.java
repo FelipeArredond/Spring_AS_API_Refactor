@@ -3,35 +3,27 @@ package com.postobon.asignacion.cedis.application.implementations;
 import com.postobon.asignacion.cedis.application.IUserService;
 import com.postobon.asignacion.cedis.domain.dto.UserDTO;
 import com.postobon.asignacion.cedis.domain.entity.UsuarioEntity;
-import com.postobon.asignacion.cedis.domain.repository.UsuarioJPA;
+import com.postobon.asignacion.cedis.domain.repository.IUserRepository;
+import com.postobon.asignacion.cedis.domain.repository.jpa.UsuarioJPA;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class UserService implements IUserService {
-    private final UsuarioJPA usuarioJPA;
+    private final IUserRepository userRepository;
 
-    public UserService(UsuarioJPA usuarioJPA) {
-        this.usuarioJPA = usuarioJPA;
+    public UserService(UsuarioJPA usuarioJPA, IUserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
-    public List<UsuarioEntity> findAll() {
-        return this.usuarioJPA.findAll();
+    public List<UserDTO> findAll() {
+        return this.userRepository.findAll();
     }
 
     @Override
     public void save(UserDTO userDTO) {
-        UsuarioEntity usuarioEntity = UsuarioEntity
-                .builder()
-                .mail(userDTO.getMail())
-                .active(userDTO.isActive())
-                .planing(userDTO.isPlanning())
-                .username(userDTO.getUsername())
-                .idRol(userDTO.getIdRol())
-                .build();
-        this.usuarioJPA.save(usuarioEntity);
+        this.userRepository.save(userDTO);
     }
 }

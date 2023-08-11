@@ -11,4 +11,5 @@ public class UserDTO {
     private boolean active;
     private String username;
     private boolean planning;
+    private RolDTO rol;
 }

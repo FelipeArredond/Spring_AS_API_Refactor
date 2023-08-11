@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Service
 public interface IUserService {
-    List<UsuarioEntity> findAll();
+    List<UserDTO> findAll();
     void save(UserDTO userDTO);
 }
