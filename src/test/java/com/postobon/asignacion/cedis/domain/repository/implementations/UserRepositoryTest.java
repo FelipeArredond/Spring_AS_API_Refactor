@@ -19,9 +19,9 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 class UserRepositoryTest {
     @Mock private UsuarioJPA usuarioJPA;
+    @Mock private IUsuarioMapper usuarioMapper;
     private UserRepository userRepository;
-    @Autowired
-    private IUsuarioMapper usuarioMapper;
+
     @BeforeEach
     void setup(){
         this.userRepository = new UserRepository(usuarioJPA, this.usuarioMapper);
